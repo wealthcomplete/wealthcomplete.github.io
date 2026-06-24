@@ -4,27 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WealthComplete | Make Wealth Complete</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --brown: #4A2E1A;
-    --brown-mid: #6B3E26;
-    --gold: #C9A84C;
-    --gold-light: #E8C97A;
-    --gold-pale: #F9F0DC;
-    --cream: #FDFAF5;
-    --white: #FFFFFF;
-    --text-dark: #1C1009;
-    --text-mid: #4A2E1A;
-    --text-light: #8B6E52;
+    --black: #0D0D0D;
+    --offblack: #1A1A1A;
+    --charcoal: #2C2C2C;
+    --gold: #111111;
+    --gold-light: #444444;
+    --gold-pale: #F0F0F0;
+    --cream: #FAF8F4;
+    --warm-white: #FFFFFF;
+    --text-mid: #555555;
+    --text-light: #888888;
+    --border: #E8E4DC;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     background: var(--cream);
-    color: var(--text-dark);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
   }
 
   /* NAV */
@@ -32,44 +34,46 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    background: var(--brown);
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 32px;
-    height: 64px;
+    padding: 0 40px;
+    height: 68px;
   }
   .nav-logo {
-    font-family: 'Playfair Display', serif;
-    color: var(--gold);
-    font-size: 1.3rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--black);
+    font-size: 1.4rem;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
     text-decoration: none;
   }
+  .nav-logo span { color: #111111; }
   .nav-links {
     display: flex;
-    gap: 28px;
+    gap: 36px;
     list-style: none;
+    align-items: center;
   }
   .nav-links a {
-    color: var(--gold-light);
+    color: var(--charcoal);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 500;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover { color: #111111; }
   .nav-cta {
-    background: var(--gold);
-    color: var(--brown) !important;
-    padding: 8px 18px;
-    border-radius: 2px;
-    font-weight: 600 !important;
+    background: var(--black) !important;
+    color: var(--warm-white) !important;
+    padding: 10px 22px !important;
+    letter-spacing: 0.08em;
   }
-  .nav-cta:hover { background: var(--gold-light); }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; }
   .hamburger {
     display: none;
     flex-direction: column;
@@ -82,190 +86,249 @@
   .hamburger span {
     display: block;
     width: 24px;
-    height: 2px;
-    background: var(--gold);
-    border-radius: 2px;
+    height: 1.5px;
+    background: var(--black);
     transition: all 0.3s;
   }
   .mobile-menu {
     display: none;
     position: fixed;
-    top: 64px; left: 0; right: 0;
-    background: var(--brown);
-    padding: 20px 32px;
+    top: 68px; left: 0; right: 0;
+    background: var(--cream);
+    padding: 20px 40px 28px;
     z-index: 99;
-    border-top: 1px solid var(--brown-mid);
+    border-bottom: 1px solid var(--border);
   }
   .mobile-menu.open { display: block; }
   .mobile-menu a {
     display: block;
-    color: var(--gold-light);
+    color: var(--charcoal);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(201,168,76,0.15);
+    letter-spacing: 0.08em;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
   }
-  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:last-child { border-bottom: none; color: #111111; }
 
   /* HERO */
   .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--brown) 0%, #2A1508 60%, var(--brown-mid) 100%);
-    display: flex;
+    background: var(--black);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 100px 24px 60px;
-    position: relative;
+    padding-top: 68px;
     overflow: hidden;
   }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.12) 0%, transparent 60%);
+  .hero-left {
+    padding: 80px 60px 80px 80px;
   }
-  .hero-content { position: relative; z-index: 1; max-width: 780px; }
   .hero-eyebrow {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-    border: 1px solid rgba(201,168,76,0.4);
-    padding: 6px 16px;
-    border-radius: 20px;
+    color: #111111;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: #111111;
   }
   .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.6rem, 6vw, 4.5rem);
-    font-weight: 900;
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5.5vw, 5rem);
+    font-weight: 600;
+    color: var(--warm-white);
+    line-height: 1.05;
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
   }
-  .hero h1 span { color: var(--gold); }
-  .hero-subtitle {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    color: var(--gold-light);
-    font-weight: 400;
-    margin-bottom: 24px;
+  .hero h1 em {
     font-style: italic;
+    color: var(--gold-light);
   }
   .hero-desc {
     font-size: 1rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.7;
-    max-width: 560px;
-    margin: 0 auto 40px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.75;
+    max-width: 420px;
+    margin-bottom: 44px;
+    font-weight: 300;
   }
-  .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
   .btn-primary {
-    background: var(--gold);
-    color: var(--brown);
-    padding: 14px 32px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: all 0.2s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-  .btn-outline {
-    border: 1.5px solid rgba(201,168,76,0.5);
-    color: var(--gold-light);
+    background: #111111;
+    color: var(--black);
     padding: 14px 32px;
     font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     text-decoration: none;
-    border-radius: 2px;
     transition: all 0.2s;
     display: inline-block;
   }
-  .btn-outline:hover { border-color: var(--gold); color: var(--white); }
-
-  /* AS SEEN IN */
-  .press-strip {
-    background: var(--gold-pale);
-    padding: 20px 32px;
-    border-bottom: 1px solid rgba(201,168,76,0.3);
-    text-align: center;
-  }
-  .press-strip p {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
+  .btn-primary:hover { background: #444444; }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.8);
+    padding: 14px 32px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 10px;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
   }
-  .press-logos {
+  .btn-outline:hover { border-color: #111111; color: #111111; }
+  .hero-right {
+    height: 100vh;
+    background: var(--charcoal);
+    position: relative;
+    overflow: hidden;
     display: flex;
-    gap: 32px;
-    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    justify-content: center;
   }
-  .press-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--text-light);
-    letter-spacing: 0.05em;
-    opacity: 0.7;
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(184,148,63,0.15) 0%, transparent 60%);
   }
-
-  /* SECTIONS shared */
-  section { padding: 80px 24px; }
-  .container { max-width: 1040px; margin: 0 auto; }
-  .section-eyebrow {
+  .hero-photo-placeholder {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-photo-placeholder .monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 9rem;
+    font-weight: 600;
+    color: rgba(184,148,63,0.3);
+    line-height: 1;
+    display: block;
+  }
+  .hero-photo-placeholder p {
     font-size: 0.7rem;
-    font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 12px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 8px;
+  }
+  .hero-stat-strip {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    border-top: 1px solid rgba(184,148,63,0.2);
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    display: block;
+  }
+  .hero-stat span {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* MARQUEE */
+  .marquee-strip {
+    background: #111111;
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+  }
+  .marquee-inner span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin: 0 32px;
+  }
+  .marquee-inner span::before {
+    content: '✦';
+    margin-right: 32px;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 40px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #111111;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: #111111;
   }
   .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700;
-    color: var(--brown);
-    line-height: 1.2;
-    margin-bottom: 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
   }
-  .section-title span { color: var(--gold); }
+  .section-title em { font-style: italic; color: #111111; }
   .section-body {
     font-size: 1rem;
-    color: var(--text-light);
-    line-height: 1.75;
+    color: var(--text-mid);
+    line-height: 1.8;
+    font-weight: 300;
   }
 
   /* ABOUT */
-  .about { background: var(--white); }
+  .about { background: var(--warm-white); }
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 64px;
+    gap: 80px;
     align-items: center;
   }
-  .about-image {
-    position: relative;
-  }
+  .about-image-wrap { position: relative; }
   .about-image-box {
-    background: linear-gradient(145deg, var(--brown), var(--brown-mid));
-    border-radius: 4px;
+    background: var(--offblack);
     aspect-ratio: 3/4;
     display: flex;
     align-items: center;
@@ -273,314 +336,331 @@
     position: relative;
     overflow: hidden;
   }
-  .about-image-box::before {
+  .about-image-box::after {
     content: '';
     position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 30% 30%, rgba(201,168,76,0.2), transparent 60%);
+    bottom: 0; left: 0; right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
   }
-  .about-image-placeholder {
-    text-align: center;
-    position: relative;
+  .about-monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem;
+    font-weight: 600;
+    color: rgba(184,148,63,0.25);
+  }
+  .about-tag {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
     z-index: 1;
-    padding: 40px;
-  }
-  .about-image-placeholder .initials {
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    font-weight: 900;
-    color: var(--gold);
-    opacity: 0.9;
-    display: block;
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-  .about-image-placeholder p {
-    color: rgba(255,255,255,0.6);
-    font-size: 0.75rem;
+    background: #111111;
+    color: var(--black);
+    font-size: 0.65rem;
+    font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
+    padding: 6px 14px;
   }
-  .about-badge {
+  .about-accent {
     position: absolute;
-    bottom: -16px;
+    top: -16px;
     right: -16px;
-    background: var(--gold);
-    color: var(--brown);
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    text-align: center;
-    line-height: 1.3;
-    box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+    width: 80px;
+    height: 80px;
+    border: 2px solid #111111;
+    z-index: -1;
   }
-  .about-badge strong { font-size: 1.4rem; display: block; }
-  .about-text .translator-tag {
+  .about-text .translator {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #111111;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .about-text p { margin-bottom: 16px; }
+  .about-text .btn-dark {
     display: inline-block;
-    background: var(--gold-pale);
-    border: 1px solid var(--gold);
-    color: var(--brown);
-    font-size: 0.75rem;
-    font-weight: 700;
+    margin-top: 12px;
+    background: var(--black);
+    color: var(--warm-white);
+    padding: 14px 32px;
+    font-size: 0.78rem;
+    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    padding: 5px 12px;
-    border-radius: 2px;
-    margin-bottom: 20px;
+    text-decoration: none;
+    transition: all 0.2s;
   }
-  .about-text p { margin-bottom: 14px; }
-  .about-text .btn-primary { margin-top: 8px; }
+  .about-text .btn-dark:hover { background: #111111; color: var(--black); }
 
-  /* WORK WITH ME */
-  .work { background: var(--gold-pale); }
+  /* OFFERINGS */
+  .work { background: var(--cream); }
+  .work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
   .offerings-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 48px;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
   }
   .offering-card {
-    background: var(--white);
-    border-radius: 4px;
-    padding: 32px 24px;
-    border-bottom: 3px solid transparent;
-    transition: all 0.25s;
+    background: var(--cream);
+    padding: 36px 28px;
     text-decoration: none;
     display: block;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
   }
-  .offering-card:hover {
-    border-bottom-color: var(--gold);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(74,46,26,0.1);
+  .offering-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: #111111;
+    transition: width 0.3s;
   }
-  .offering-icon {
-    width: 44px;
-    height: 44px;
-    background: var(--brown);
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .offering-card:hover { background: var(--warm-white); }
+  .offering-card:hover::after { width: 100%; }
+  .offering-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--border);
+    line-height: 1;
     margin-bottom: 20px;
-    font-size: 1.3rem;
+    transition: color 0.25s;
   }
+  .offering-card:hover .offering-number { color: var(--gold-pale); }
   .offering-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--brown);
-    margin-bottom: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 10px;
+    line-height: 1.2;
   }
   .offering-card p {
-    font-size: 0.875rem;
-    color: var(--text-light);
-    line-height: 1.6;
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    font-weight: 300;
   }
-  .offering-link {
+  .offering-arrow {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    margin-top: 16px;
-    font-size: 0.8rem;
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 0.72rem;
     font-weight: 600;
-    color: var(--gold);
-    letter-spacing: 0.05em;
+    color: #111111;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
-  /* PODCAST / FREE RESOURCES */
-  .resources { background: var(--brown); }
-  .resources .section-title { color: var(--white); }
-  .resources .section-eyebrow { color: var(--gold-light); }
-  .resources .section-body { color: rgba(255,255,255,0.7); }
+  /* RESOURCES */
+  .resources { background: var(--black); padding: 100px 40px; }
+  .resources-inner { max-width: 1100px; margin: 0 auto; }
+  .resources .section-title { color: var(--warm-white); }
   .resources-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    margin-top: 56px;
   }
   .resource-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 4px;
-    padding: 28px 24px;
+    background: var(--black);
+    padding: 40px 32px;
     text-decoration: none;
     display: block;
-    transition: all 0.2s;
+    transition: background 0.2s;
+    border-bottom: 2px solid transparent;
   }
-  .resource-card:hover {
-    background: rgba(201,168,76,0.1);
-    border-color: rgba(201,168,76,0.5);
-  }
-  .resource-card .tag {
+  .resource-card:hover { background: var(--offblack); border-bottom-color: #111111; }
+  .resource-tag {
     font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 10px;
+    color: #111111;
+    margin-bottom: 14px;
   }
   .resource-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    color: var(--white);
-    font-weight: 700;
-    margin-bottom: 8px;
-    line-height: 1.3;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--warm-white);
+    margin-bottom: 10px;
+    line-height: 1.2;
   }
   .resource-card p {
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    font-weight: 300;
   }
-  .resource-card .arrow {
+  .resource-arrow {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    margin-top: 14px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--gold);
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #111111;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
   }
 
   /* TESTIMONIALS */
-  .testimonials { background: var(--cream); }
+  .testimonials { background: var(--warm-white); }
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 48px;
+    gap: 32px;
+    margin-top: 56px;
   }
   .testimonial-card {
-    background: var(--white);
-    border-radius: 4px;
-    padding: 28px;
-    border-top: 3px solid var(--gold);
+    padding: 36px 28px;
+    border: 1px solid var(--border);
+    position: relative;
   }
-  .stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 14px; letter-spacing: 2px; }
+  .testimonial-card::before {
+    content: '\201C';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: var(--gold-pale);
+    position: absolute;
+    top: 12px;
+    left: 24px;
+    line-height: 1;
+  }
   .testimonial-card blockquote {
     font-size: 0.9rem;
     color: var(--text-mid);
-    line-height: 1.7;
+    line-height: 1.75;
     font-style: italic;
-    margin-bottom: 18px;
+    margin-bottom: 24px;
+    padding-top: 32px;
+    font-weight: 300;
   }
   .testimonial-name {
-    font-weight: 700;
-    font-size: 0.8rem;
-    color: var(--brown);
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--black);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
   }
+  .stars { color: #111111; font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 4px; }
 
-  /* EMAIL CTA */
+  /* CTA */
   .cta-section {
-    background: linear-gradient(135deg, var(--brown-mid), var(--brown));
+    background: #F0F0F0;
     text-align: center;
-    padding: 80px 24px;
+    padding: 100px 40px;
+    border-top: 1px solid var(--border);
   }
-  .cta-section .section-eyebrow { color: var(--gold-light); }
-  .cta-section .section-title { color: var(--white); }
+  .cta-section .section-title { color: var(--black); }
   .cta-section p {
-    color: rgba(255,255,255,0.75);
+    color: var(--text-mid);
     font-size: 1rem;
-    line-height: 1.7;
-    max-width: 500px;
-    margin: 0 auto 32px;
+    line-height: 1.75;
+    max-width: 480px;
+    margin: 0 auto 36px;
+    font-weight: 300;
   }
   .email-form {
     display: flex;
-    gap: 12px;
+    gap: 0;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 480px;
+    max-width: 460px;
     margin: 0 auto;
   }
   .email-form input {
     flex: 1;
     min-width: 220px;
-    padding: 14px 18px;
-    border: 1px solid rgba(201,168,76,0.4);
-    background: rgba(255,255,255,0.08);
-    color: var(--white);
-    border-radius: 2px;
+    padding: 15px 20px;
+    border: 1px solid var(--black);
+    border-right: none;
+    background: var(--warm-white);
+    color: var(--black);
     font-size: 0.9rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     outline: none;
   }
-  .email-form input::placeholder { color: rgba(255,255,255,0.45); }
-  .email-form input:focus { border-color: var(--gold); }
+  .email-form input::placeholder { color: var(--text-light); }
   .email-form button {
-    padding: 14px 28px;
-    background: var(--gold);
-    color: var(--brown);
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
+    padding: 15px 28px;
+    background: var(--black);
+    color: var(--warm-white);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    border: none;
-    border-radius: 2px;
+    border: 1px solid var(--black);
     cursor: pointer;
-    transition: background 0.2s;
-    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
   }
-  .email-form button:hover { background: var(--gold-light); }
+  .email-form button:hover { background: #111111; border-color: #111111; color: var(--black); }
 
   /* FOOTER */
   footer {
-    background: var(--text-dark);
-    color: rgba(255,255,255,0.6);
-    padding: 48px 32px 32px;
+    background: var(--offblack);
+    color: rgba(255,255,255,0.5);
+    padding: 60px 40px 32px;
   }
-  .footer-inner {
-    max-width: 1040px;
-    margin: 0 auto;
-  }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
   .footer-top {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 40px;
+    gap: 48px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  .footer-brand .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--gold);
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--warm-white);
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    text-decoration: none;
   }
+  .footer-logo span { color: #111111; }
   .footer-brand p { font-size: 0.85rem; line-height: 1.7; }
   .footer-col h4 {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.9);
-    margin-bottom: 14px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 18px;
   }
   .footer-col a {
     display: block;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.45);
     text-decoration: none;
     font-size: 0.85rem;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     transition: color 0.2s;
+    font-weight: 300;
   }
-  .footer-col a:hover { color: var(--gold); }
+  .footer-col a:hover { color: #111111; }
   .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -588,42 +668,45 @@
     gap: 12px;
   }
   .footer-bottom p { font-size: 0.78rem; }
-  .social-links { display: flex; gap: 16px; }
+  .social-links { display: flex; gap: 20px; }
   .social-links a {
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.4);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     transition: color 0.2s;
   }
-  .social-links a:hover { color: var(--gold); }
+  .social-links a:hover { color: #111111; }
 
   /* RESPONSIVE */
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { height: 50vw; min-height: 300px; }
+    .hero-left { padding: 60px 32px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-image-wrap { max-width: 320px; }
+    .offerings-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 0 24px; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
-    .about-grid { grid-template-columns: 1fr; }
-    .about-image { order: -1; max-width: 280px; margin: 0 auto; }
+    .mobile-menu { padding: 20px 24px 28px; }
+    section { padding: 72px 24px; }
+    .resources { padding: 72px 24px; }
+    .cta-section { padding: 72px 24px; }
+    footer { padding: 48px 24px 28px; }
     .offerings-grid { grid-template-columns: 1fr; }
     .resources-grid { grid-template-columns: 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
-    .footer-top { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
     .footer-bottom { flex-direction: column; text-align: center; }
-  }
-  @media (max-width: 480px) {
-    .footer-top { grid-template-columns: 1fr; }
-    .hero { padding: 90px 20px 50px; }
-    section { padding: 60px 20px; }
-  }
-
-  /* DIVIDER */
-  .gold-divider {
-    width: 48px;
-    height: 2px;
-    background: var(--gold);
-    margin: 16px 0 24px;
+    .hero-left { padding: 48px 24px 40px; }
+    .work-header { flex-direction: column; align-items: flex-start; }
+    .email-form input { border-right: 1px solid var(--black); border-bottom: none; }
   }
 </style>
 </head>
@@ -631,7 +714,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">WealthComplete</a>
+  <a href="#" class="nav-logo">Wealth<span>Complete</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#work">Work With Me</a></li>
@@ -653,27 +736,43 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-content">
-    <span class="hero-eyebrow">Financial Literacy & Investing Education</span>
-    <h1>Wealth Isn't <span>Reserved</span><br>For the Few.</h1>
-    <p class="hero-subtitle">It's a lifestyle — and you're building it.</p>
-    <p class="hero-desc">WealthComplete is where everyday people — especially women — learn to invest confidently, build lasting wealth, and make financial freedom a way of life. No jargon. No shame. Just real strategies that work.</p>
+  <div class="hero-left">
+    <p class="hero-eyebrow">Financial Literacy & Investing Education</p>
+    <h1>Wealth Isn't<br>Reserved<br>For the <em>Few.</em></h1>
+    <p class="hero-desc">WealthComplete is where everyday people learn to invest confidently, build lasting wealth, and make financial freedom a way of life. No jargon. No shame. Just real strategies that work.</p>
     <div class="hero-buttons">
       <a href="#work" class="btn-primary">Start Your Journey</a>
-      <a href="#resources" class="btn-outline">Get Free Resources</a>
+      <a href="#resources" class="btn-outline">Free Resources</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-placeholder">
+      <span class="monogram">W</span>
+      <p>Your photo here</p>
+    </div>
+    <div class="hero-stat-strip">
+      <div class="hero-stat"><strong>5K+</strong><span>People Investing</span></div>
+      <div class="hero-stat"><strong>12+</strong><span>Modules</span></div>
+      <div class="hero-stat"><strong>3+</strong><span>Years Teaching</span></div>
     </div>
   </div>
 </section>
 
-<!-- PRESS STRIP -->
-<div class="press-strip">
-  <p>As Seen In</p>
-  <div class="press-logos">
-    <span class="press-logo">Forbes</span>
-    <span class="press-logo">Black Enterprise</span>
-    <span class="press-logo">Essence</span>
-    <span class="press-logo">HuffPost</span>
-    <span class="press-logo">The Root</span>
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Investing as a Lifestyle</span>
+    <span>Make Wealth Complete</span>
+    <span>Stock Market Education</span>
+    <span>Financial Freedom</span>
+    <span>Index Funds</span>
+    <span>Generational Wealth</span>
+    <span>Investing as a Lifestyle</span>
+    <span>Make Wealth Complete</span>
+    <span>Stock Market Education</span>
+    <span>Financial Freedom</span>
+    <span>Index Funds</span>
+    <span>Generational Wealth</span>
   </div>
 </div>
 
@@ -681,30 +780,23 @@
 <section class="about" id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-image">
+      <div class="about-image-wrap">
         <div class="about-image-box">
-          <div class="about-image-placeholder">
-            <span class="initials">W</span>
-            <p>Your photo here</p>
-          </div>
+          <span class="about-monogram">W</span>
+          <div class="about-tag">The Translator</div>
         </div>
-        <div class="about-badge">
-          <strong>5K+</strong>
-          Women Investing
-        </div>
+        <div class="about-accent"></div>
       </div>
       <div class="about-text">
         <p class="section-eyebrow">Who Is Wealth?</p>
-        <h2 class="section-title">Meet<br><span>The Translator.</span></h2>
-        <div class="gold-divider"></div>
-        <div class="translator-tag">The Translator | Financial Educator</div>
-        <p class="section-body">I take the complex world of investing and translate it into language that makes sense for everyday life — because building wealth shouldn't require a finance degree.</p>
+        <h2 class="section-title">Meet<br><em>The Translator.</em></h2>
+        <span class="translator">Financial Educator · Speaker · Community Builder</span>
+        <p class="section-body">I take the complex world of investing and translate it into language that makes sense for everyday life — because building wealth shouldn't require a finance degree or a certain background.</p>
         <br>
-        <p class="section-body">I'm the founder of WealthComplete, a financial literacy brand built for the woman who is ready to stop waiting and start investing. My mission is simple: normalize wealth-building as a lifestyle, one informed decision at a time.</p>
+        <p class="section-body">I'm the founder of WealthComplete, a financial literacy brand built for everyday people who are ready to stop waiting and start investing. My mission is simple: normalize wealth-building as a lifestyle, one informed decision at a time.</p>
         <br>
         <p class="section-body">From the stock market to index funds to building generational wealth — I'm here to walk with you every step of the way.</p>
-        <br>
-        <a href="#work" class="btn-primary">Work With Me</a>
+        <a href="#work" class="btn-dark">Work With Me</a>
       </div>
     </div>
   </div>
@@ -713,44 +805,48 @@
 <!-- WORK WITH ME -->
 <section class="work" id="work">
   <div class="container">
-    <p class="section-eyebrow">Work With Me</p>
-    <h2 class="section-title">How We Build<br><span>Wealth Together</span></h2>
+    <div class="work-header">
+      <div>
+        <p class="section-eyebrow">Work With Me</p>
+        <h2 class="section-title">How We Build<br><em>Wealth Together</em></h2>
+      </div>
+    </div>
     <div class="offerings-grid">
       <a href="#" class="offering-card">
-        <div class="offering-icon">📚</div>
+        <div class="offering-number">01</div>
         <h3>Beginner's Investing Guide</h3>
-        <p>Start with the stock market the right way. My signature beginner's guide breaks down the S&P 500, index funds, and building your first portfolio in plain language.</p>
-        <span class="offering-link">Get the Guide →</span>
+        <p>Start with the stock market the right way. My signature guide breaks down the S&P 500, index funds, and your first portfolio in plain language.</p>
+        <span class="offering-arrow">Get the Guide →</span>
       </a>
       <a href="#" class="offering-card">
-        <div class="offering-icon">👑</div>
+        <div class="offering-number">02</div>
         <h3>WealthComplete Community</h3>
-        <p>Join a growing community of women learning to invest as a lifestyle. Accountability, education, and real talk — all in one place on Nestuge.</p>
-        <span class="offering-link">Join the Community →</span>
+        <p>Join a growing community of everyday people learning to invest as a lifestyle. Real accountability and education — all on Nestuge.</p>
+        <span class="offering-arrow">Join Now →</span>
       </a>
       <a href="#" class="offering-card">
-        <div class="offering-icon">🎤</div>
+        <div class="offering-number">03</div>
         <h3>Live Events & Workshops</h3>
-        <p>In-person and virtual experiences designed to move you from knowing to doing. From brunch events to Finance Fairs — wealth education meets community.</p>
-        <span class="offering-link">See Events →</span>
+        <p>In-person and virtual experiences designed to move you from knowing to doing. From brunch events to Finance Fairs.</p>
+        <span class="offering-arrow">See Events →</span>
       </a>
       <a href="#" class="offering-card">
-        <div class="offering-icon">🎓</div>
+        <div class="offering-number">04</div>
         <h3>Stock Market Course</h3>
-        <p>A 12-module beginner course covering everything from what the market is, to how to buy your first stock, to building a wealth mindset that sticks.</p>
-        <span class="offering-link">Enroll Now →</span>
+        <p>A 12-module beginner course covering everything from what the market is, to buying your first stock, to building a wealth mindset that sticks.</p>
+        <span class="offering-arrow">Enroll Now →</span>
       </a>
       <a href="#" class="offering-card">
-        <div class="offering-icon">🤖</div>
+        <div class="offering-number">05</div>
         <h3>AI for Small Business</h3>
-        <p>Learn how to use AI tools to grow your business smarter. Claude Certified consulting services tailored for women entrepreneurs and small business owners.</p>
-        <span class="offering-link">Learn More →</span>
+        <p>Learn how to use AI tools to grow your business smarter. Claude Certified consulting services tailored for entrepreneurs and small business owners.</p>
+        <span class="offering-arrow">Learn More →</span>
       </a>
       <a href="#" class="offering-card">
-        <div class="offering-icon">📊</div>
+        <div class="offering-number">06</div>
         <h3>1:1 Strategy Sessions</h3>
-        <p>Ready to get personal? Book a private session to map out your investment strategy, review your portfolio, and create a wealth plan that fits your life.</p>
-        <span class="offering-link">Book a Session →</span>
+        <p>Ready to get personal? Book a private session to map out your investment strategy and create a wealth plan that fits your life.</p>
+        <span class="offering-arrow">Book a Session →</span>
       </a>
     </div>
   </div>
@@ -758,35 +854,33 @@
 
 <!-- RESOURCES -->
 <section class="resources" id="resources">
-  <div class="container">
-    <p class="section-eyebrow">Free Resources</p>
-    <h2 class="section-title">Start Learning.<br>No Cost Required.</h2>
-    <div class="gold-divider" style="background: var(--gold);"></div>
-    <p class="section-body" style="max-width: 520px;">Because your first step toward wealth shouldn't cost you anything. These resources are my gift to you.</p>
+  <div class="resources-inner">
+    <p class="section-eyebrow" style="color: #111111;">Free Resources</p>
+    <h2 class="section-title" style="color: var(--warm-white);">Start Learning.<br><em>No Cost Required.</em></h2>
     <div class="resources-grid">
       <a href="#" class="resource-card">
-        <p class="tag">Free Guide</p>
+        <p class="resource-tag">Free Guide</p>
         <h3>Beginner's Guide to the S&P 500</h3>
         <p>Everything you need to understand index investing, written in plain language. Download and start today.</p>
-        <span class="arrow">Download Free →</span>
+        <span class="resource-arrow">Download Free →</span>
       </a>
       <a href="#" class="resource-card">
-        <p class="tag">Free Checklist</p>
+        <p class="resource-tag">Free Checklist</p>
         <h3>Your First Portfolio Checklist</h3>
-        <p>A simple step-by-step checklist for setting up your first investment account and making your first contribution.</p>
-        <span class="arrow">Get the Checklist →</span>
+        <p>A step-by-step checklist for setting up your first investment account and making your first contribution.</p>
+        <span class="resource-arrow">Get the Checklist →</span>
       </a>
       <a href="#" class="resource-card">
-        <p class="tag">Video Series</p>
-        <h3>Women Who Built Wealth by Investing</h3>
-        <p>10-episode video series featuring real stories of everyday women who chose investing as a lifestyle.</p>
-        <span class="arrow">Watch Now →</span>
+        <p class="resource-tag">Video Series</p>
+        <h3>Everyday People Who Built Wealth by Investing</h3>
+        <p>A 10-episode video series featuring real stories of everyday people who chose investing as a lifestyle.</p>
+        <span class="resource-arrow">Watch Now →</span>
       </a>
       <a href="#" class="resource-card">
-        <p class="tag">Free Workbook</p>
+        <p class="resource-tag">Free Workbook</p>
         <h3>Investing as a Lifestyle Workbook</h3>
-        <p>A 40-page guided workbook to help you shift your mindset, understand the basics, and build a wealth plan.</p>
-        <span class="arrow">Download →</span>
+        <p>A 40-page guided workbook to shift your mindset, understand the basics, and build a real wealth plan.</p>
+        <span class="resource-arrow">Download →</span>
       </a>
     </div>
   </div>
@@ -796,7 +890,7 @@
 <section class="testimonials" id="testimonials">
   <div class="container">
     <p class="section-eyebrow">The WealthComplete Community</p>
-    <h2 class="section-title">Real Women.<br><span>Real Wealth.</span></h2>
+    <h2 class="section-title">Real People.<br><em>Real Wealth.</em></h2>
     <div class="testimonials-grid">
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
@@ -805,12 +899,12 @@
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"The way she breaks things down — no shame, no judgment, just clarity — is unlike anything I've experienced. I finally feel like investing is something that's FOR me, not just for rich people."</blockquote>
+        <blockquote>"The way she breaks things down — no shame, no judgment, just clarity — is unlike anything I've experienced. I finally feel like investing is something that's FOR me."</blockquote>
         <p class="testimonial-name">— Keisha M.</p>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"I attended the Finance Fair event and left with a plan, a portfolio, and a whole community of women doing the same thing. This is more than education — it's a movement."</blockquote>
+        <blockquote>"I attended the Finance Fair and left with a plan, a portfolio, and a whole community of people doing the same thing. This is more than education — it's a movement."</blockquote>
         <p class="testimonial-name">— Adaeze O.</p>
       </div>
     </div>
@@ -820,8 +914,8 @@
 <!-- EMAIL CTA -->
 <section class="cta-section" id="contact">
   <div class="container">
-    <p class="section-eyebrow">Join the WealthComplete Family</p>
-    <h2 class="section-title" style="color: var(--white);">Get Wealth Education<br>Delivered to You</h2>
+    <p class="section-eyebrow" style="justify-content: center;">Join the WealthComplete Family</p>
+    <h2 class="section-title">Wealth Education<br><em>Delivered to You</em></h2>
     <p>Weekly investing tips, market updates in plain English, and exclusive resources — straight to your inbox. No spam. Just wealth.</p>
     <div class="email-form">
       <input type="email" placeholder="Your email address">
@@ -835,10 +929,10 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <span class="logo">WealthComplete</span>
-        <p>Making wealth-building accessible, normalized, and achievable for every woman ready to invest in her future.</p>
+        <a href="#" class="footer-logo">Wealth<span>Complete</span></a>
+        <p>Making wealth-building accessible, normalized, and achievable for every person ready to invest in their future.</p>
         <br>
-        <p style="font-size: 0.75rem; color: var(--gold); font-style: italic;">Make Wealth Complete.</p>
+        <p style="font-size: 0.75rem; color: #111111; font-style: italic; font-family: 'Cormorant Garamond', serif;">Make Wealth Complete.</p>
       </div>
       <div class="footer-col">
         <h4>Learn</h4>
@@ -879,10 +973,8 @@
 
 <script>
   function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('open');
+    document.getElementById('mobileMenu').classList.toggle('open');
   }
-  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const target = document.querySelector(this.getAttribute('href'));
@@ -893,6 +985,5 @@
     });
   });
 </script>
-
 </body>
 </html>
