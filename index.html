@@ -1,989 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WealthComplete | Make Wealth Complete</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --black: #0D0D0D;
-    --offblack: #1A1A1A;
-    --charcoal: #2C2C2C;
-    --gold: #111111;
-    --gold-light: #444444;
-    --gold-pale: #F0F0F0;
-    --cream: #FAF8F4;
-    --warm-white: #FFFFFF;
-    --text-mid: #555555;
-    --text-light: #888888;
-    --border: #E8E4DC;
-  }
+WealthComplete
+	•	ABOUT
+	•	WORK WITH ME
+	•	FREE RESOURCES
+	•	COMMUNITY
+	•	START HERE
+FINANCIAL LITERACY & INVESTING EDUCATION
+Wealth Isn't Reserved For the Few.
+WealthComplete is where everyday people learn to invest confidently, build lasting wealth, and make financial freedom a way of life. No jargon. No shame. Just real strategies that work.
+START YOUR JOURNEY
+FREE RESOURCES
+W
+YOUR PHOTO HERE
+5K+
+PEOPLE INVESTING
+12+
+MODULES
+3+
+YEARS TEACHING
+INVESTING AS A LIFESTYLE MAKE WEALTH COMPLETE STOCK MARKET EDUCATION FINANCIAL FREEDOM INDEX FUNDS GENERATIONAL WEALTH INVESTING AS A LIFESTYLE MAKE WEALTH COMPLETE STOCK MARKET EDUCATION FINANCIAL FREEDOM INDEX FUNDS GENERATIONAL WEALTH
+W
+THE TRANSLATOR
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+ABOUT WEALTHCOMPLETE
+Clarity Over Complexity.
+WealthComplete is a financial education platform built to help everyday people learn how to invest, grow wealth, and build long-term financial confidence.
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--black);
-    -webkit-font-smoothing: antialiased;
-  }
+Too often, investing is made to feel complicated, intimidating, or out of reach. WealthComplete exists to change that. We focus on clarity over complexity, and practical action over theory — so money becomes something you can understand and manage, not avoid.
 
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: var(--cream);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    height: 68px;
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    color: var(--black);
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    text-decoration: none;
-  }
-  .nav-logo span { color: #111111; }
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-    align-items: center;
-  }
-  .nav-links a {
-    color: var(--charcoal);
-    text-decoration: none;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: #111111; }
-  .nav-cta {
-    background: var(--black) !important;
-    color: var(--warm-white) !important;
-    padding: 10px 22px !important;
-    letter-spacing: 0.08em;
-  }
-  .nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; }
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 4px;
-  }
-  .hamburger span {
-    display: block;
-    width: 24px;
-    height: 1.5px;
-    background: var(--black);
-    transition: all 0.3s;
-  }
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 68px; left: 0; right: 0;
-    background: var(--cream);
-    padding: 20px 40px 28px;
-    z-index: 99;
-    border-bottom: 1px solid var(--border);
-  }
-  .mobile-menu.open { display: block; }
-  .mobile-menu a {
-    display: block;
-    color: var(--charcoal);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 13px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .mobile-menu a:last-child { border-bottom: none; color: #111111; }
+This is not about quick wins or financial hype. It's about building steady habits, informed decisions, and a healthier relationship with wealth over time.
+START YOUR JOURNEY
+WHY WEALTHCOMPLETE EXISTS
+Many people were never taught how money works.
+Not in school. Not at home. And often not even in their workplaces. WealthComplete was created to bridge that gap.
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    background: var(--black);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding-top: 68px;
-    overflow: hidden;
-  }
-  .hero-left {
-    padding: 80px 60px 80px 80px;
-  }
-  .hero-eyebrow {
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #111111;
-    margin-bottom: 28px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: #111111;
-  }
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 5.5vw, 5rem);
-    font-weight: 600;
-    color: var(--warm-white);
-    line-height: 1.05;
-    margin-bottom: 28px;
-    letter-spacing: -0.01em;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--gold-light);
-  }
-  .hero-desc {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.75;
-    max-width: 420px;
-    margin-bottom: 44px;
-    font-weight: 300;
-  }
-  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn-primary {
-    background: #111111;
-    color: var(--black);
-    padding: 14px 32px;
-    font-weight: 600;
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.2s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: #444444; }
-  .btn-outline {
-    border: 1px solid rgba(255,255,255,0.25);
-    color: rgba(255,255,255,0.8);
-    padding: 14px 32px;
-    font-weight: 500;
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.2s;
-    display: inline-block;
-  }
-  .btn-outline:hover { border-color: #111111; color: #111111; }
-  .hero-right {
-    height: 100vh;
-    background: var(--charcoal);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .hero-right::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(184,148,63,0.15) 0%, transparent 60%);
-  }
-  .hero-photo-placeholder {
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-  .hero-photo-placeholder .monogram {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 9rem;
-    font-weight: 600;
-    color: rgba(184,148,63,0.3);
-    line-height: 1;
-    display: block;
-  }
-  .hero-photo-placeholder p {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    margin-top: 8px;
-  }
-  .hero-stat-strip {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    border-top: 1px solid rgba(184,148,63,0.2);
-  }
-  .hero-stat { text-align: center; }
-  .hero-stat strong {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--gold-light);
-    display: block;
-  }
-  .hero-stat span {
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-  }
+Our goal is simple: to make financial literacy and investing accessible, understandable, and usable in everyday life.
+Because wealth should not feel exclusive. It should feel learnable.
+WHAT WE FOCUS ON
+Three Core Pillars
+01
+Investment Literacy
+Breaking down investing concepts into clear, simple language so you can understand how to grow your money with confidence.
+02
+Wealth-Building Habits
+Helping you move from inconsistent financial decisions to intentional, long-term strategies.
+03
+Practical Application
+Real steps, real tools, and real guidance you can actually use — not just information to consume.
+THE APPROACH
+Simple. Clear. Consistent.
+We don't believe in overwhelming people with jargon or information overload. The goal is not just to teach you about money, but to help you build a lifestyle around it.
+—
+Simple explanations that meet you where you are
+—
+Clear investing principles you can apply immediately
+—
+Consistent, realistic strategies built for real life
+—
+Long-term thinking over short-term noise
+A NOTE FROM THE FOUNDER
+"Financial freedom becomes possible when people are given clear, honest, and practical education about money."
+This platform reflects that mission — turning financial concepts into everyday understanding and helping people take confident steps toward their goals.
+You don't need perfect timing. You don't need advanced knowledge. You just need a starting point and a system that grows with you.
+WORK WITH ME
+How We Build Wealth Together
+01
+Beginner's Investing Guide
+Start with the stock market the right way. My signature guide breaks down the S&P 500, index funds, and your first portfolio in plain language.
+GET THE GUIDE →
+02
+WealthComplete Community
+Join a growing community of everyday people learning to invest as a lifestyle. Real accountability and education — all on Nestuge.
+JOIN NOW →
+03
+Live Events & Workshops
+In-person and virtual experiences designed to move you from knowing to doing. From brunch events to Finance Fairs.
+SEE EVENTS →
+04
+Stock Market Course
+A 12-module beginner course covering everything from what the market is, to buying your first stock, to building a wealth mindset that sticks.
+ENROLL NOW →
+05
+AI for Small Business
+Learn how to use AI tools to grow your business smarter. Claude Certified consulting services tailored for entrepreneurs and small business owners.
+LEARN MORE →
+06
+1:1 Strategy Sessions
+Ready to get personal? Book a private session to map out your investment strategy and create a wealth plan that fits your life.
+BOOK A SESSION →
+FREE RESOURCES
+Start Learning. No Cost Required.
+FREE GUIDE
+Beginner's Guide to the S&P 500
+Everything you need to understand index investing, written in plain language. Download and start today.
+DOWNLOAD FREE →
+FREE CHECKLIST
+Your First Portfolio Checklist
+A step-by-step checklist for setting up your first investment account and making your first contribution.
+GET THE CHECKLIST →
+VIDEO SERIES
+Everyday People Who Built Wealth by Investing
+A 10-episode video series featuring real stories of everyday people who chose investing as a lifestyle.
+WATCH NOW →
+FREE WORKBOOK
+Investing as a Lifestyle Workbook
+A 40-page guided workbook to shift your mindset, understand the basics, and build a real wealth plan.
+DOWNLOAD →
+THE WEALTHCOMPLETE COMMUNITY
+Real People. Real Wealth.
+★★★★★
+"I came in knowing nothing about the stock market. Now I have a Roth IRA, index funds in my portfolio, and I actually understand what I'm doing. WealthComplete changed everything for me."
+— JASMINE T.
+★★★★★
+"The way she breaks things down — no shame, no judgment, just clarity — is unlike anything I've experienced. I finally feel like investing is something that's FOR me."
+— KEISHA M.
+★★★★★
+"I attended the Finance Fair and left with a plan, a portfolio, and a whole community of people doing the same thing. This is more than education — it's a movement."
+— ADAEZE O.
+JOIN THE WEALTHCOMPLETE FAMILY
+Wealth Education Delivered to You
+Weekly investing tips, market updates in plain English, and exclusive resources — straight to your inbox. No spam. Just wealth.
 
-  /* MARQUEE */
-  .marquee-strip {
-    background: #111111;
-    padding: 14px 0;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  .marquee-inner {
-    display: inline-block;
-    animation: marquee 20s linear infinite;
-  }
-  .marquee-inner span {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--black);
-    margin: 0 32px;
-  }
-  .marquee-inner span::before {
-    content: '✦';
-    margin-right: 32px;
-  }
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
+SUBSCRIBE FREE
+WealthComplete
+Making wealth-building accessible, normalized, and achievable for every person ready to invest in their future.
 
-  /* SECTIONS */
-  section { padding: 100px 40px; }
-  .container { max-width: 1100px; margin: 0 auto; }
-  .section-eyebrow {
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #111111;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .section-eyebrow::before {
-    content: '';
-    display: block;
-    width: 28px;
-    height: 1px;
-    background: #111111;
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 4vw, 3.4rem);
-    font-weight: 600;
-    color: var(--black);
-    line-height: 1.1;
-    margin-bottom: 20px;
-    letter-spacing: -0.01em;
-  }
-  .section-title em { font-style: italic; color: #111111; }
-  .section-body {
-    font-size: 1rem;
-    color: var(--text-mid);
-    line-height: 1.8;
-    font-weight: 300;
-  }
-
-  /* ABOUT */
-  .about { background: var(--warm-white); }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .about-image-wrap { position: relative; }
-  .about-image-box {
-    background: var(--offblack);
-    aspect-ratio: 3/4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .about-image-box::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 40%;
-    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
-  }
-  .about-monogram {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 8rem;
-    font-weight: 600;
-    color: rgba(184,148,63,0.25);
-  }
-  .about-tag {
-    position: absolute;
-    bottom: 24px;
-    left: 24px;
-    z-index: 1;
-    background: #111111;
-    color: var(--black);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 6px 14px;
-  }
-  .about-accent {
-    position: absolute;
-    top: -16px;
-    right: -16px;
-    width: 80px;
-    height: 80px;
-    border: 2px solid #111111;
-    z-index: -1;
-  }
-  .about-text .translator {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
-    font-style: italic;
-    color: #111111;
-    letter-spacing: 0.05em;
-    margin-bottom: 20px;
-    display: block;
-  }
-  .about-text p { margin-bottom: 16px; }
-  .about-text .btn-dark {
-    display: inline-block;
-    margin-top: 12px;
-    background: var(--black);
-    color: var(--warm-white);
-    padding: 14px 32px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .about-text .btn-dark:hover { background: #111111; color: var(--black); }
-
-  /* OFFERINGS */
-  .work { background: var(--cream); }
-  .work-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 56px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .offerings-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-  .offering-card {
-    background: var(--cream);
-    padding: 36px 28px;
-    text-decoration: none;
-    display: block;
-    transition: all 0.25s;
-    position: relative;
-    overflow: hidden;
-  }
-  .offering-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 0; height: 2px;
-    background: #111111;
-    transition: width 0.3s;
-  }
-  .offering-card:hover { background: var(--warm-white); }
-  .offering-card:hover::after { width: 100%; }
-  .offering-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--border);
-    line-height: 1;
-    margin-bottom: 20px;
-    transition: color 0.25s;
-  }
-  .offering-card:hover .offering-number { color: var(--gold-pale); }
-  .offering-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--black);
-    margin-bottom: 10px;
-    line-height: 1.2;
-  }
-  .offering-card p {
-    font-size: 0.85rem;
-    color: var(--text-mid);
-    line-height: 1.65;
-    font-weight: 300;
-  }
-  .offering-arrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 20px;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: #111111;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  /* RESOURCES */
-  .resources { background: var(--black); padding: 100px 40px; }
-  .resources-inner { max-width: 1100px; margin: 0 auto; }
-  .resources .section-title { color: var(--warm-white); }
-  .resources-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.08);
-    margin-top: 56px;
-  }
-  .resource-card {
-    background: var(--black);
-    padding: 40px 32px;
-    text-decoration: none;
-    display: block;
-    transition: background 0.2s;
-    border-bottom: 2px solid transparent;
-  }
-  .resource-card:hover { background: var(--offblack); border-bottom-color: #111111; }
-  .resource-tag {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #111111;
-    margin-bottom: 14px;
-  }
-  .resource-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--warm-white);
-    margin-bottom: 10px;
-    line-height: 1.2;
-  }
-  .resource-card p {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-  .resource-arrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 20px;
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: #111111;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  /* TESTIMONIALS */
-  .testimonials { background: var(--warm-white); }
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 56px;
-  }
-  .testimonial-card {
-    padding: 36px 28px;
-    border: 1px solid var(--border);
-    position: relative;
-  }
-  .testimonial-card::before {
-    content: '\201C';
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 5rem;
-    color: var(--gold-pale);
-    position: absolute;
-    top: 12px;
-    left: 24px;
-    line-height: 1;
-  }
-  .testimonial-card blockquote {
-    font-size: 0.9rem;
-    color: var(--text-mid);
-    line-height: 1.75;
-    font-style: italic;
-    margin-bottom: 24px;
-    padding-top: 32px;
-    font-weight: 300;
-  }
-  .testimonial-name {
-    font-weight: 600;
-    font-size: 0.75rem;
-    color: var(--black);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-  .stars { color: #111111; font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 4px; }
-
-  /* CTA */
-  .cta-section {
-    background: #F0F0F0;
-    text-align: center;
-    padding: 100px 40px;
-    border-top: 1px solid var(--border);
-  }
-  .cta-section .section-title { color: var(--black); }
-  .cta-section p {
-    color: var(--text-mid);
-    font-size: 1rem;
-    line-height: 1.75;
-    max-width: 480px;
-    margin: 0 auto 36px;
-    font-weight: 300;
-  }
-  .email-form {
-    display: flex;
-    gap: 0;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 460px;
-    margin: 0 auto;
-  }
-  .email-form input {
-    flex: 1;
-    min-width: 220px;
-    padding: 15px 20px;
-    border: 1px solid var(--black);
-    border-right: none;
-    background: var(--warm-white);
-    color: var(--black);
-    font-size: 0.9rem;
-    font-family: 'DM Sans', sans-serif;
-    outline: none;
-  }
-  .email-form input::placeholder { color: var(--text-light); }
-  .email-form button {
-    padding: 15px 28px;
-    background: var(--black);
-    color: var(--warm-white);
-    font-weight: 600;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: 1px solid var(--black);
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .email-form button:hover { background: #111111; border-color: #111111; color: var(--black); }
-
-  /* FOOTER */
-  footer {
-    background: var(--offblack);
-    color: rgba(255,255,255,0.5);
-    padding: 60px 40px 32px;
-  }
-  .footer-inner { max-width: 1100px; margin: 0 auto; }
-  .footer-top {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 48px;
-    margin-bottom: 48px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--warm-white);
-    display: block;
-    margin-bottom: 14px;
-    text-decoration: none;
-  }
-  .footer-logo span { color: #111111; }
-  .footer-brand p { font-size: 0.85rem; line-height: 1.7; }
-  .footer-col h4 {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.8);
-    margin-bottom: 18px;
-  }
-  .footer-col a {
-    display: block;
-    color: rgba(255,255,255,0.45);
-    text-decoration: none;
-    font-size: 0.85rem;
-    margin-bottom: 10px;
-    transition: color 0.2s;
-    font-weight: 300;
-  }
-  .footer-col a:hover { color: #111111; }
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .footer-bottom p { font-size: 0.78rem; }
-  .social-links { display: flex; gap: 20px; }
-  .social-links a {
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    transition: color 0.2s;
-  }
-  .social-links a:hover { color: #111111; }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-right { height: 50vw; min-height: 300px; }
-    .hero-left { padding: 60px 32px; }
-    .about-grid { grid-template-columns: 1fr; }
-    .about-image-wrap { max-width: 320px; }
-    .offerings-grid { grid-template-columns: 1fr 1fr; }
-    .footer-top { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 640px) {
-    nav { padding: 0 24px; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    .mobile-menu { padding: 20px 24px 28px; }
-    section { padding: 72px 24px; }
-    .resources { padding: 72px 24px; }
-    .cta-section { padding: 72px 24px; }
-    footer { padding: 48px 24px 28px; }
-    .offerings-grid { grid-template-columns: 1fr; }
-    .resources-grid { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .footer-top { grid-template-columns: 1fr; gap: 32px; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-    .hero-left { padding: 48px 24px 40px; }
-    .work-header { flex-direction: column; align-items: flex-start; }
-    .email-form input { border-right: 1px solid var(--black); border-bottom: none; }
-  }
-</style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Wealth<span>Complete</span></a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#work">Work With Me</a></li>
-    <li><a href="#resources">Free Resources</a></li>
-    <li><a href="#testimonials">Community</a></li>
-    <li><a href="#contact" class="nav-cta">Start Here</a></li>
-  </ul>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="toggleMenu()">About</a>
-  <a href="#work" onclick="toggleMenu()">Work With Me</a>
-  <a href="#resources" onclick="toggleMenu()">Free Resources</a>
-  <a href="#testimonials" onclick="toggleMenu()">Community</a>
-  <a href="#contact" onclick="toggleMenu()">Start Here →</a>
-</div>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-left">
-    <p class="hero-eyebrow">Financial Literacy & Investing Education</p>
-    <h1>Wealth Isn't<br>Reserved<br>For the <em>Few.</em></h1>
-    <p class="hero-desc">WealthComplete is where everyday people learn to invest confidently, build lasting wealth, and make financial freedom a way of life. No jargon. No shame. Just real strategies that work.</p>
-    <div class="hero-buttons">
-      <a href="#work" class="btn-primary">Start Your Journey</a>
-      <a href="#resources" class="btn-outline">Free Resources</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-photo-placeholder">
-      <span class="monogram">W</span>
-      <p>Your photo here</p>
-    </div>
-    <div class="hero-stat-strip">
-      <div class="hero-stat"><strong>5K+</strong><span>People Investing</span></div>
-      <div class="hero-stat"><strong>12+</strong><span>Modules</span></div>
-      <div class="hero-stat"><strong>3+</strong><span>Years Teaching</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-strip">
-  <div class="marquee-inner">
-    <span>Investing as a Lifestyle</span>
-    <span>Make Wealth Complete</span>
-    <span>Stock Market Education</span>
-    <span>Financial Freedom</span>
-    <span>Index Funds</span>
-    <span>Generational Wealth</span>
-    <span>Investing as a Lifestyle</span>
-    <span>Make Wealth Complete</span>
-    <span>Stock Market Education</span>
-    <span>Financial Freedom</span>
-    <span>Index Funds</span>
-    <span>Generational Wealth</span>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-image-wrap">
-        <div class="about-image-box">
-          <span class="about-monogram">W</span>
-          <div class="about-tag">The Translator</div>
-        </div>
-        <div class="about-accent"></div>
-      </div>
-      <div class="about-text">
-        <p class="section-eyebrow">Who Is Wealth?</p>
-        <h2 class="section-title">Meet<br><em>The Translator.</em></h2>
-        <span class="translator">Financial Educator · Speaker · Community Builder</span>
-        <p class="section-body">I take the complex world of investing and translate it into language that makes sense for everyday life — because building wealth shouldn't require a finance degree or a certain background.</p>
-        <br>
-        <p class="section-body">I'm the founder of WealthComplete, a financial literacy brand built for everyday people who are ready to stop waiting and start investing. My mission is simple: normalize wealth-building as a lifestyle, one informed decision at a time.</p>
-        <br>
-        <p class="section-body">From the stock market to index funds to building generational wealth — I'm here to walk with you every step of the way.</p>
-        <a href="#work" class="btn-dark">Work With Me</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WORK WITH ME -->
-<section class="work" id="work">
-  <div class="container">
-    <div class="work-header">
-      <div>
-        <p class="section-eyebrow">Work With Me</p>
-        <h2 class="section-title">How We Build<br><em>Wealth Together</em></h2>
-      </div>
-    </div>
-    <div class="offerings-grid">
-      <a href="#" class="offering-card">
-        <div class="offering-number">01</div>
-        <h3>Beginner's Investing Guide</h3>
-        <p>Start with the stock market the right way. My signature guide breaks down the S&P 500, index funds, and your first portfolio in plain language.</p>
-        <span class="offering-arrow">Get the Guide →</span>
-      </a>
-      <a href="#" class="offering-card">
-        <div class="offering-number">02</div>
-        <h3>WealthComplete Community</h3>
-        <p>Join a growing community of everyday people learning to invest as a lifestyle. Real accountability and education — all on Nestuge.</p>
-        <span class="offering-arrow">Join Now →</span>
-      </a>
-      <a href="#" class="offering-card">
-        <div class="offering-number">03</div>
-        <h3>Live Events & Workshops</h3>
-        <p>In-person and virtual experiences designed to move you from knowing to doing. From brunch events to Finance Fairs.</p>
-        <span class="offering-arrow">See Events →</span>
-      </a>
-      <a href="#" class="offering-card">
-        <div class="offering-number">04</div>
-        <h3>Stock Market Course</h3>
-        <p>A 12-module beginner course covering everything from what the market is, to buying your first stock, to building a wealth mindset that sticks.</p>
-        <span class="offering-arrow">Enroll Now →</span>
-      </a>
-      <a href="#" class="offering-card">
-        <div class="offering-number">05</div>
-        <h3>AI for Small Business</h3>
-        <p>Learn how to use AI tools to grow your business smarter. Claude Certified consulting services tailored for entrepreneurs and small business owners.</p>
-        <span class="offering-arrow">Learn More →</span>
-      </a>
-      <a href="#" class="offering-card">
-        <div class="offering-number">06</div>
-        <h3>1:1 Strategy Sessions</h3>
-        <p>Ready to get personal? Book a private session to map out your investment strategy and create a wealth plan that fits your life.</p>
-        <span class="offering-arrow">Book a Session →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- RESOURCES -->
-<section class="resources" id="resources">
-  <div class="resources-inner">
-    <p class="section-eyebrow" style="color: #111111;">Free Resources</p>
-    <h2 class="section-title" style="color: var(--warm-white);">Start Learning.<br><em>No Cost Required.</em></h2>
-    <div class="resources-grid">
-      <a href="#" class="resource-card">
-        <p class="resource-tag">Free Guide</p>
-        <h3>Beginner's Guide to the S&P 500</h3>
-        <p>Everything you need to understand index investing, written in plain language. Download and start today.</p>
-        <span class="resource-arrow">Download Free →</span>
-      </a>
-      <a href="#" class="resource-card">
-        <p class="resource-tag">Free Checklist</p>
-        <h3>Your First Portfolio Checklist</h3>
-        <p>A step-by-step checklist for setting up your first investment account and making your first contribution.</p>
-        <span class="resource-arrow">Get the Checklist →</span>
-      </a>
-      <a href="#" class="resource-card">
-        <p class="resource-tag">Video Series</p>
-        <h3>Everyday People Who Built Wealth by Investing</h3>
-        <p>A 10-episode video series featuring real stories of everyday people who chose investing as a lifestyle.</p>
-        <span class="resource-arrow">Watch Now →</span>
-      </a>
-      <a href="#" class="resource-card">
-        <p class="resource-tag">Free Workbook</p>
-        <h3>Investing as a Lifestyle Workbook</h3>
-        <p>A 40-page guided workbook to shift your mindset, understand the basics, and build a real wealth plan.</p>
-        <span class="resource-arrow">Download →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
-  <div class="container">
-    <p class="section-eyebrow">The WealthComplete Community</p>
-    <h2 class="section-title">Real People.<br><em>Real Wealth.</em></h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"I came in knowing nothing about the stock market. Now I have a Roth IRA, index funds in my portfolio, and I actually understand what I'm doing. WealthComplete changed everything for me."</blockquote>
-        <p class="testimonial-name">— Jasmine T.</p>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"The way she breaks things down — no shame, no judgment, just clarity — is unlike anything I've experienced. I finally feel like investing is something that's FOR me."</blockquote>
-        <p class="testimonial-name">— Keisha M.</p>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"I attended the Finance Fair and left with a plan, a portfolio, and a whole community of people doing the same thing. This is more than education — it's a movement."</blockquote>
-        <p class="testimonial-name">— Adaeze O.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EMAIL CTA -->
-<section class="cta-section" id="contact">
-  <div class="container">
-    <p class="section-eyebrow" style="justify-content: center;">Join the WealthComplete Family</p>
-    <h2 class="section-title">Wealth Education<br><em>Delivered to You</em></h2>
-    <p>Weekly investing tips, market updates in plain English, and exclusive resources — straight to your inbox. No spam. Just wealth.</p>
-    <div class="email-form">
-      <input type="email" placeholder="Your email address">
-      <button type="button">Subscribe Free</button>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#" class="footer-logo">Wealth<span>Complete</span></a>
-        <p>Making wealth-building accessible, normalized, and achievable for every person ready to invest in their future.</p>
-        <br>
-        <p style="font-size: 0.75rem; color: #111111; font-style: italic; font-family: 'Cormorant Garamond', serif;">Make Wealth Complete.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Learn</h4>
-        <a href="#">Beginner's Guide</a>
-        <a href="#">Stock Market Course</a>
-        <a href="#">Free Workbook</a>
-        <a href="#">Video Series</a>
-        <a href="#">Blog</a>
-      </div>
-      <div class="footer-col">
-        <h4>Work With Me</h4>
-        <a href="#">Community</a>
-        <a href="#">Events</a>
-        <a href="#">1:1 Sessions</a>
-        <a href="#">AI Consulting</a>
-        <a href="#">Speaking</a>
-      </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <a href="#">Instagram</a>
-        <a href="#">Facebook</a>
-        <a href="#">YouTube</a>
-        <a href="#">Nestuge Community</a>
-        <a href="#">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 WealthComplete. All Rights Reserved.</p>
-      <div class="social-links">
-        <a href="#">Instagram</a>
-        <a href="#">Facebook</a>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
-</body>
-</html>
+Make Wealth Complete.
+LEARN
+Beginner's Guide
+Stock Market Course
+Free Workbook
+Video Series
+Blog
+WORK WITH ME
+Community
+Events
+1:1 Sessions
+AI Consulting
+Speaking
+CONNECT
+Instagram
+Facebook
+YouTube
+Nestuge Community
+Contact
+© 2026 WealthComplete. All Rights Reserved.
+INSTAGRAM
+FACEBOOK
+PRIVACY
+TERMS
